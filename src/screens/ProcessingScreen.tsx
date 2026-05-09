@@ -5,6 +5,7 @@ import {
   StyleSheet,
   SafeAreaView,
   Animated,
+  ActivityIndicator,
 } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RouteProp } from '@react-navigation/native'
@@ -108,8 +109,8 @@ export default function ProcessingScreen({ navigation, route }: Props) {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.container}>
-        <View style={styles.iconContainer}>
-          <Text style={styles.icon}>⟳</Text>
+        <View style={styles.spinnerContainer}>
+          <ActivityIndicator size={64} color={COLORS.primary} />
         </View>
 
         <Text style={styles.title}>Processing Payment</Text>
@@ -131,8 +132,7 @@ export default function ProcessingScreen({ navigation, route }: Props) {
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: COLORS.background },
   container: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 32 },
-  iconContainer: { width: 80, height: 80, borderRadius: 40, backgroundColor: COLORS.primaryLight, alignItems: 'center', justifyContent: 'center', marginBottom: 24 },
-  icon: { fontSize: 36, color: COLORS.primary },
+  spinnerContainer: { marginBottom: 32 },
   title: { fontSize: 22, fontWeight: '700', color: COLORS.text, marginBottom: 8 },
   amount: { fontSize: 36, fontWeight: '700', color: COLORS.primary, marginBottom: 8 },
   subtitle: { fontSize: 15, color: COLORS.textSecondary, marginBottom: 32 },
